@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {info} from './NewTaskTable';
 import GetInfo from './GetInfo';
 
-// let info = []; // для экспорта данных
 let partedResources = []; // для экспорта данных
 
 function Test(props) {
@@ -77,8 +76,6 @@ export default class EditTaskTable extends Component {
       }
     }
     document.getElementById('setReadyButton').setAttribute('disabled', '');
-    // document.getElementById('edit-task-formed').removeAttribute('id')
-    // document.getElementById('edit-task').setAttribute('disabled', '');
     this.setState(prevState => ({
       showStep: !prevState.showStep
     }));

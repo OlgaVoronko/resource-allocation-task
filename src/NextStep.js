@@ -8,8 +8,8 @@ function GoToNextStep(props) {
     return null;
   }
   if(step != props.cols) {
-    document.getElementById('goToNextStep').removeAttribute('id')
-    console.log('cols ', props.cols)
+    // document.getElementById('goToNextStep').classList.add('hidden');
+    document.getElementById('goToNextStep').removeAttribute('id');
     return <Step2 />
   }
   else {
@@ -35,11 +35,10 @@ export default class NextStepComponent extends Component {
     }));
   }
   render() {
-    console.log('step = ', step);
   return (
     <div>
       <button
-        className='nextButton activeButton'
+        className=''
         id="goToNextStep"
         onClick={this.handleToggleClick}>
           Следующий шаг

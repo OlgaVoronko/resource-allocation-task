@@ -34,7 +34,6 @@ function NextStep(props) {
       lastTableArray[0] = [];
       let tempArray = [];
       let n = 0;
-      console.log('partedResources', partedResources)
       for (let i = 0; i < partedResources.length; i++) {
         tempArray.push('B' + (i+1) + ' (' + partedResources[i] + ') = ' + info[n]);
         lastTableArray[0].push(info[n]);

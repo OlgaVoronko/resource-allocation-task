@@ -58,7 +58,6 @@ export default class Step2Control extends Component {
       prevColumn.shift();
     }
     tableBody.reverse();
-  //  return tableBody.map((item, index) => <tr>{item.map((it, ind) => <td><p className='line1' id={'line1-' + (+index + 1) + (+ind)}>{it}</p><p className='line2' id={'line2-' + (+index + 1) + (+ind)}></p></td>)}<td id={'maxValue' + (+index + 1)}></td></tr>);
     return tableBody.map((item, index) => <tr><td>{partedResources[index]}</td>{item.map((it, ind) => <td><p className='line1'><input id={'line1-' + (+index + 1) + (+ind)} /></p><p className='line2'><input id={'line2-' + (+index + 1) + (+ind)} /></p></td>)}<td><input id={'maxValue' + (+index + 1)} /></td></tr>);
 }
 handleToggleClick() {
@@ -66,33 +65,6 @@ handleToggleClick() {
     showStep: !prevState.showStep
   }));
 }
-// componentWillMount() {
-//   console.log('STEP', step)
-//   if(step > 2) {
-//     lineValues = [];
-//     prevColumn = [];
-//     for (let i = 1; i < 6; i++) {
-//       for (let j = 0; j < 6; j++) {
-//           if (document.getElementById('line1-' + (i) + (j + 1)).innerHTML) {
-//             document.getElementById('line2-' + (i) + (j + 1)).innerHTML = +document.getElementById('line1-' + (i + 1) + (j + 1)).innerHTML +
-//             +document.getElementById('header' + (j)).innerHTML;
-//             // document.getElementById('line1-' + (i + 1) + (j + 1)).removeAttribute('id');
-//           }
-//           if (document.getElementById('line2-' + (i + 1) + (j + 1)).innerHTML) {
-//             lineValues.push(document.getElementById('line2-' + (i + 1) + (j + 1)).innerHTML);
-//             document.getElementById('maxValue' + (i + 1)).innerHTML = Math.max.apply(null, lineValues);
-//             // document.getElementById('line2-' + (i + 1) + (j + 1)).removeAttribute('id');
-//           }
-//       }
-//         prevColumn.push(document.getElementById('maxValue' + (i + 1)).innerHTML);
-//   }
-//   prevColumn.unshift('0')
-//   lastTableArray[step - 1] = [];
-//   lastTableArray[step - 1] = prevColumn.slice();
-//   console.log('prevColumn', prevColumn)
-//   console.log('lastTableArray[step - 1]', lastTableArray[step - 1])
-// }
-// }
   render() {
     step++;
     if (step == +(this.state.columns) + 1) {

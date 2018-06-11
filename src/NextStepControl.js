@@ -20,7 +20,6 @@ function GoToNextStep(props) {
   if (!props.next) {
     return null;
   }
-  // console.log('props.cols', props.cols)
   if(step != props.cols) {
     return <Step2Control />
   }
@@ -41,7 +40,6 @@ export default class NextStepControl extends Component {
       this.handleToggleClick = this.handleToggleClick.bind(this);
   }
   handleToggleClick() {
-    // console.log('last', lastTableArray);
     if (nextIter) {
     for (let i = 0; i < partedResources.length; i++) {
       line1Array[i] = [];
@@ -69,11 +67,9 @@ export default class NextStepControl extends Component {
     for (let i = 1; i< partedResources.length + 1; i++) {
       info.push(+document.getElementById('input' + (i) + (step)).value)
       line2Array[i - 1] = [];
-      //this.state.columns
       for (let j = 0; j < 7; j++) {
         if (line1Array[i - 1][j] != "") {
           line2Array[i - 1].push(+line1Array[i - 1][j] + +info[j]);
-          // lineValues.push(line2Array[i - 1]);
         } else {
           line2Array[i - 1].push("");
         }
@@ -152,19 +148,6 @@ export default class NextStepControl extends Component {
       console.log(nextIter);
       console.log(check1, check2, check3, check4)
       if (check1 && check2 && check3 && check4) {
-        // for (let j = 0; j < 7; j++) {
-        //   document.getElementById('header' + (j)).removeAttribute('id');
-        // }
-        // for (let i = 0; i < partedResources.length; i++) {
-        //   document.getElementById('maxValue' + (i + 1)).removeAttribute('id');
-        // }
-        // document.getElementById('goToNextStep').removeAttribute('id');
-        // for (let i = 1; i < partedResources.length + 1; i++) {
-        //   for (let j = 0; j < line2Array[0].length; j++) {
-        //     document.getElementById('line2-' + (i) + (j)).removeAttribute('id');
-        //     document.getElementById('line1-' + (i) + (j)).removeAttribute('id');
-        //   }
-        // }
         this.setState(prevState => ({
           showStep: !prevState.showStep
         }));
@@ -180,7 +163,6 @@ export default class NextStepControl extends Component {
       if (window.confirm("Вводятся неверные значения. Попробовать еще раз?")) {
         count = 0;
       } else {
-        //Тут должен быть пересчет параметров
         nextIter = true;
         check1 = true;
         check2 = true;
@@ -217,20 +199,6 @@ export default class NextStepControl extends Component {
         console.log('lastTableArray', lastTableArray);
 
         count = 0;
-        // for (let j = 0; j < 6; j++) {
-        //   document.getElementById('maxValue' + (j + 1)).removeAttribute('id');
-        // }
-        // for (let j = 0; j < 7; j++) {
-        //   document.getElementById('header' + (j)).removeAttribute('id');
-        // }
-        // for (let i = 1; i < partedResources.length + 1; i++) {
-        //   for (let j = 0; j < 7; j++) {
-        //     //console.log('line2-' + (i) + (j));
-        //     document.getElementById('line2-' + (i) + (j)).removeAttribute('id');
-        //     document.getElementById('line1-' + (i) + (j)).removeAttribute('id');
-        //   }
-        // }
-        // document.getElementById('goToNextStep').removeAttribute('id');
         this.setState(prevState => ({
           showStep: !prevState.showStep
         }));
@@ -238,35 +206,6 @@ export default class NextStepControl extends Component {
     }
   }
   componentDidUpdate() {
-  //   console.log('STEP', step)
-  //   if(step > 2) {
-  //     // lineValues = [];
-  //     prevColumn = [];
-  //   //   for (let i = 1; i < 6; i++) {
-  //   //     for (let j = 0; j < 6; j++) {
-  //   //         if (document.getElementById('line1-' + (i) + (j + 1)).innerHTML) {
-  //   //           document.getElementById('line2-' + (i) + (j + 1)).innerHTML = +document.getElementById('line1-' + (i + 1) + (j + 1)).innerHTML +
-  //   //           +document.getElementById('header' + (j)).innerHTML;
-  //   //           // document.getElementById('line1-' + (i + 1) + (j + 1)).removeAttribute('id');
-  //   //         }
-  //   //         if (document.getElementById('line2-' + (i + 1) + (j + 1)).innerHTML) {
-  //   //           lineValues.push(document.getElementById('line2-' + (i + 1) + (j + 1)).innerHTML);
-  //   //           document.getElementById('maxValue' + (i + 1)).innerHTML = Math.max.apply(null, lineValues);
-  //   //           // document.getElementById('line2-' + (i + 1) + (j + 1)).removeAttribute('id');
-  //   //         }
-  //   //     }
-  //   //       prevColumn.push(document.getElementById('maxValue' + (i + 1)).innerHTML);
-  //   // }
-  //   prevColumn.unshift('0')
-  //   lastTableArray[step - 1] = [];
-  //   lastTableArray[step - 1] = prevColumn.slice();
-  //   console.log('prevColumn', prevColumn)
-  //   console.log('lineValues', lineValues);
-  //   console.log('lastTableArray[step - 1]', lastTableArray[step - 1]);
-  //   lineValues = [];
-  // }
-
-
     for (let j = 0; j < 6; j++) {
       document.getElementById('maxValue' + (j + 1)).removeAttribute('id');
     }
@@ -281,8 +220,6 @@ export default class NextStepControl extends Component {
     }
     document.getElementById('goToNextStep').removeAttribute('id');
   }
-
-
   render() {
     console.log('step = ', step);
   return (

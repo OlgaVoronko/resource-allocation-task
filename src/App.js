@@ -3,9 +3,11 @@ import NewTaskForm from './NewTaskForm';
 import EditTaskForm from './EditTaskForm';
 import GetInfo from './GetInfo';
 import GetInfoControl from './GetInfoControl';
+import GetInfoTeach from './GetInfoTeach';
+import AboutProgram from './AboutProgram';
 import {info} from './NewTaskTable';
 
-function WarningBanner(props) {
+function Calculate(props) {
   if (!props.warn) {
     return null;
   }
@@ -19,14 +21,30 @@ function Control(prop) {
   return <GetInfoControl />
 }
 
+function Teach(prop) {
+  if (!prop.teach) {
+    return null;
+  }
+  return <GetInfoTeach />
+}
+
+function About(prop) {
+  if (!prop.about) {
+    return null;
+  }
+  return <AboutProgram />
+}
+
 export default class Nav extends Component {
 
   constructor() {
 		super()
 		this.state = {
 			showArea: false,
-      showWarning: false,
-      showControl: false
+      showCalc: false,
+      showControl: false,
+      showTeach: false,
+      showAbout: false
 		}
     this.handleToggleClick = this.handleToggleClick.bind(this);
 	}
@@ -35,7 +53,7 @@ export default class Nav extends Component {
       alert("Вы не ввели новое условие!")
     } else {
       this.setState(prevState => ({
-        showWarning: !prevState.showWarning
+        showCalc: !prevState.showCalc
       }));
     }
 }
@@ -48,6 +66,22 @@ controlClick() {
     }));
   }
 }
+
+teachClick() {
+  if (info.length === 0) {
+    alert("Вы не ввели новое условие!")
+  } else {
+    this.setState(prevState => ({
+      showTeach: !prevState.showTeach
+    }));
+  }
+}
+
+aboutClick() {
+  this.setState(prevState => ({
+    showAbout: !prevState.showAbout
+  }));
+}
   componentDidMount() {
     document.getElementById('new-task').setAttribute("onClick", "{document.getElementById('new-task-form').classList.remove('hidden')}");
   }
@@ -56,7 +90,8 @@ controlClick() {
       <div>
         <div className="nav">
           <div className="icon">
-            <button id="new-task">
+            <button id="new-task"
+              className="none">
               <img
                 src="./new-task.PNG"
                 title="Новое условие"
@@ -67,6 +102,7 @@ controlClick() {
           <div className="icon">
             <button id="calculate"
                     onClick={this.handleToggleClick}
+                    className="none"
                     >
               <img
                 src="./calculate.PNG"
@@ -76,9 +112,11 @@ controlClick() {
             </button>
           </div>
           <div className="icon">
-            <button id="teach" disabled>
+            <button id="control"
+                    className="none"
+                    onClick={this.teachClick.bind(this)}>
               <img
-                src="teach.PNG"
+                src="./teach.PNG"
                 title="Режим обучения"
                 alt=""
               />
@@ -86,6 +124,7 @@ controlClick() {
           </div>
           <div className="icon">
             <button id="control"
+                    className="none"
                     onClick={this.controlClick.bind(this)}>
               <img
                 src="./control.PNG"
@@ -95,7 +134,9 @@ controlClick() {
             </button>
           </div>
           <div className="icon">
-            <button id="about">
+            <button id="about"
+                className="none"
+                onClick={this.aboutClick.bind(this)}>
               <img
                 src="./about.PNG"
                 title="О программе"
@@ -108,8 +149,10 @@ controlClick() {
           <NewTaskForm />
         </div>
         <div>
-        <WarningBanner warn={this.state.showWarning} />
+        <Calculate warn={this.state.showCalc} />
         <Control control={this.state.showControl} />
+        <Teach teach={this.state.showTeach} />
+        <About about={this.state.showAbout} />
       </div>
       </div>
     );

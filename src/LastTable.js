@@ -58,14 +58,12 @@ export default class LastTable extends Component {
   componentDidMount() {
     for (let i = 0; i < this.state.rows; i++) {
       for (let j = 0; j < this.state.columns; j++) {
-      //    this.state.info.push(document.getElementById('editedInput' + (i + 1) + (j + 1)).value);
           document.getElementById('input' + (i + 1) + (j + 1)).removeAttribute('id');
       }
     }
     document.getElementById('rows').removeAttribute('id');
     document.getElementById('columns').removeAttribute('id');
     document.getElementById('resources').removeAttribute('id');
-    //partedResources.length = 0;
   }
   handleToggleClick() {
     this.setState(prevState => ({

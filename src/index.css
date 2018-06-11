@@ -1,5 +1,10 @@
-*{
-    font-family: Areal;
+ *{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+body {
+  min-width: 1000px;
+  max-width: 1350px;
 }
 
 .nav {
@@ -14,23 +19,22 @@
 }
 
 #new-task-form, #edit-task-formed {
-    /* width:600px;
-    height:400px; */
-    background-color: #efeaea;
+    /* background-color: #efeaea; */
     margin:0px auto;
     padding:10px;
-    font-size: 1.2rem;
-    overflow: scroll;
+    font-size: 1em;
 }
-
+/*
 .unactive {
   display: none;
-}
+}*/
 
 input {
   width: 50px;
+  background-color: #D8E6F3;
+  border: 0.5px solid #AFCDE7;
 }
-
+/*
 table {
   border-collapse: collapse;
 }
@@ -44,38 +48,72 @@ thead, tr > td:first-child {
   border: 3px solid white;
   color: white;
   align-content: center;
-}
+}*/
 
 .stepTable td {
   position: relative;
   width: 4rem;
   height: 1.5rem;
   padding: 3px;
-  border: 1px solid black;
+  /* border: 1px solid black;*/
 }
 
 .stepTable td p:first-child {
   position: absolute;
   top: 0;
   right: 0;
+  margin: 5px;
 }
 
 .stepTable td p:last-child {
   position: absolute;
   bottom: 0;
   left: 0;
-}
+  margin: 0px 5px;
+}/*
 
 .stepTable thead td, .stepTable tr > td:first-child, .stepTable tr > td:last-child {
-  border: 3px solid black;
+   border: 3px solid black;
   color: black;
-}
+}*/
 
 .stepTableControl td {
   width: 7rem;
   height: 2.5rem;
 }
 
+table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+border-collapse: collapse;
+display: inline;
+/* text-align: center; */
+}
+thead td, tr td:first-child {
+background: #AFCDE7;
+color: white;
+padding: 10px 10px;
+}
+
+.stepTable tr td:last-child{
+background: #AFCDE7;
+color: white;
+padding: 10px 10px;
+}
+
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+td {
+background: #D8E6F3;
+}
+th:first-child, td:first-child {
+/* text-align: left; */
+}
+
+/*
  .line1 {
   float: right;
 }
@@ -95,25 +133,124 @@ thead, tr > td:first-child {
 .text {
   margin-top: 0px;
 }
-
+*/
 .nextButton {
-  width: 130px;
+  display: block;
+  margin: 0px auto;
 }
 
 .hidden {
   display: none;
 }
 
-.activeButton {
-  background-color: pink;
+/* .activeButton {
+  /* background-color: pink;
   border: 1px solid #f1516d54;
   border-radius: 5px;
   font-size: 0.9rem;
   padding: 7px 0 8px 0;
   width: 150px;
-  margin: 10px 0;
+  margin: 10px 0; *//*
+  display: block;
+  width: 200px;
+padding: 15px 30px;
+background-color: #4bd0b8;
+-webkit-background-clip: padding-box;
+-moz-background-clip: padding-box;
+background-clip: padding-box;
+border: none;
+color: white;
+border-radius: 6px;
+margin: 10px 178.50px;
+position: absolute;
+bottom: -100px;
+transition: background-color 0.3s ease;
+font-family: 'Open Sans', sans-serif;
+font-weight: normal;
+font-size: 16px;
+text-decoration: none;
+line-height: 28px;
+} */
+
+html,body{
+  height:100%;
+}
+body{
+  text-align:center;
+}
+body:before{
+  content:'';
+  height:100%;
+  /* display:inline-block; */
+  vertical-align:middle;
+}
+button{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  border-radius: 15px;
+  position:relative;
+  height:60px;
+  font-size:1em;
+  padding:0 1.5em;
+  margin: 0.5em;
+  cursor:pointer;
+  /* transition:800ms ease all;
+  outline:none; */
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  /* transition:400ms ease all; */
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }
 
-button.activeButton:hover {
-  width: 200px;
+.none {
+  padding: 0px;
+  background-color: white;
 }
+
+.teachingBlock {
+  display: block;
+  margin: 0px auto;
+  width: 50em;
+  text-align: justify;
+}
+
+.teaching {
+  text-indent: 3em;
+}
+
+.formula {
+  display: block;
+  margin: 0px auto;
+}
+
+.about {
+  width: 30em;
+  margin: 0px auto;
+}
+
+
+
+/* button.activeButton:hover {
+  width: 200px;
+} */

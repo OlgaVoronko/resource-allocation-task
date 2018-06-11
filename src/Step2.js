@@ -30,15 +30,11 @@ export default class Step2 extends Component {
   getNextColumn() {
     nextColumnArray = [];
     for (let i = 0; i < this.state.rows; i++) {
-      console.log('STTEEEEP', step)
       nextColumnArray.push(document.getElementById('input' + (i+1) + (step)).value)
     }
-    // console.log('nextColumnArray', nextColumnArray)
     return nextColumnArray.map((item, index) => <td id={'header' + (+index + 1)}>{item}</td>);
   }
   formTableBody() {
-    // prevColumn = [];
-    // tableRow = [];
     tableBody = [];
     resourcesCopy = partedResources.slice();
     resourcesCopy.reverse();
@@ -47,7 +43,6 @@ export default class Step2 extends Component {
         prevColumn.push(document.getElementById('input' + (i+1) + (step - 1)).value)
       }
     }
-      // console.log('prev2', prevColumn)
     prevColumn.reverse();
     for (let i = 0; i < partedResources.length; i++) {
       tableBody[i] = [];
@@ -97,8 +92,6 @@ componentDidMount() {
   }
   lastTableArray[step - 1] = [];
   lastTableArray[step - 1] = prevColumn.slice();
-  console.log('prevColumn', prevColumn)
-  console.log('lastTableArray[step - 1]', lastTableArray[step - 1])
 }
   render() {
     step++;
